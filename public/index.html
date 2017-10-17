@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .admin{
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="myController" class="container">
+            <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="admin">UserName</th>
+                            <th class="admin">Password</th>
+                            <th class="admin">FullName</th>
+                            <th class="admin">Age</th>
+                            <th class="admin">Address</th>
+                            <th class="admin">CRUD</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <th><input class="w3-input" type="text" ng-model="user.username"></th>
+                            <th><input class="w3-input" type="password" ng-model="user.password"></th>
+                            <th><input class="w3-input" type="text" ng-model="user.fullname"></th>
+                            <th><input class="w3-input" type="text" ng-model="user.age"></th>
+                            <th><input class="w3-input" type="text" ng-model="user.address"></th>
+                            <th><button class="w3-button w3-blue w3-border w3-border-blue w3-round-large" ng-click="addUser()" ng-disabled="testAdd">Thêm User</button></th>
+                            <th><button class="w3-button w3-blue w3-border w3-border-blue w3-round-large" ng-click="submitUser(user._id)"  ng-disabled="testDone">Xong</button></th>
+                        </tr>   
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="user in danhSachUser">
+                            <td>{{user.username}}</td>
+                            <td>****</td>
+                            <td>{{user.fullname}}</td>
+                            <td>{{user.age}}</td>
+                            <td>{{user.address}}</td>
+                            <td>
+                                    <button class="w3-button w3-red w3-border w3-border-red w3-round-large" ng-click="deleteUser(user._id)">Xóa</button>
+                            </td>
+                            <td>
+                                    <button class="w3-button w3-purple w3-border w3-border-purple w3-round-large" ng-click="editUser(user._id)">Sửa</button>                                    
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+    </div>  
+    <!-- Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="./app.js"></script>
+</body>
+</html>
